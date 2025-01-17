@@ -29,21 +29,21 @@ RUN curl -sSL https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedr
 RUN unzip chromedriver.zip -d /usr/local/bin/
 RUN chmod +x /usr/local/bin/chromedriver
 
-# Install Python dependencies (you'll need to have a requirements.txt file)
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r /app/requirements.txt
-
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the rest of your application code
+# Copy the requirements.txt file into the container and install Python dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Copy the rest of your application code into the container
 COPY . /app
 
-# Install other Python dependencies if needed
+# Install other Python dependencies if needed (selenium, webdriver-manager, etc.)
 RUN pip install selenium webdriver-manager
 
 # Expose the required port (if your app listens on a port)
 EXPOSE 5000
 
-# Start the application
+# Start the application (replace scraper.py with the correct script if necessary)
 CMD ["python", "scraper.py"]
