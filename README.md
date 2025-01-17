@@ -98,6 +98,21 @@ pip install -r requirements.txt
 
 ---
 
+## Environment Variables
+
+Create a `.env` file in the root directory of the project with the following template:
+
+```
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority&appName=Cluster0
+X_USERNAME=<twitter_username>
+X_PASSWORD=<twitter_password>
+CHROMEDRIVER_PATH=chromedriver.exe
+```
+
+Replace `<username>`, `<password>`, `<dbname>`, `<twitter_username>`, and `<twitter_password>` with your MongoDB credentials and Twitter login details. Ensure the `CHROMEDRIVER_PATH` points to your `chromedriver.exe` file.
+
+---
+
 ## Troubleshooting
 
 - **ChromeDriver Version Mismatch:**
