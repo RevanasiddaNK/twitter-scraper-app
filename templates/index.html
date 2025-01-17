@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Topics</title>
+</head>
+<body>
+    <h1>Twitter Trending Topics</h1>
+    
+    <!-- Button to run the scraper -->
+    <button onclick="runScraper()">Click here to run the scraper</button>
+
+    <div id="result">
+        <p id="message"></p>
+        <ul id="trends-list"></ul>
+        <p id="ip-address"></p>
+        <h3>JSON Data from MongoDB:</h3>
+        <pre id="json-data"></pre>
+    </div>
+
+    <script>
+        // JavaScript function to call Flask endpoint to trigger the scraper
+        async function runScraper() {
+            const messageElement = document.getElementById('message');
+            const trendsListElement = document.getElementById('trends-list');
+            const ipAddressElement = document.getElementById('ip-address');
+            const jsonDataElement = document.getElementById('json-data');
+
+            messageElement.textContent = "Scraping in progress...";
+
+            // Call Flask API to run the scraper
+            const response = await fetch('/run-scraper');
+            const data = await response.json();
+
+            // Display the message
+            messageElement.textContent = data.message;
+
+            // Fetch the latest trends from MongoDB and display them
+            const trendsResponse = await fetch('/get-trends');
+            const trendsData = await trendsResponse.json();
+
+            const latestTrends = trendsData[0]; // Assuming the latest record is the first
+
+            // Display the top 5 trends
+            trendsListElement.innerHTML = `
+                <li>${latestTrends.trend1}</li>
+                <li>${latestTrends.trend2}</li>
+                <li>${latestTrends.trend3}</li>
+                <li>${latestTrends.trend4}</li>
+                <li>${latestTrends.trend5}</li>
+            `;
+           
+
+            // Display the JSON data from MongoDB
+            jsonDataElement.textContent = JSON.stringify(latestTrends, null, 2);
+        }
+    </script>
+</body>
+</html>
