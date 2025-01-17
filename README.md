@@ -122,6 +122,10 @@ Replace `<username>`, `<password>`, `<dbname>`, `<twitter_username>`, and `<twit
   Double-check your MongoDB URI and ensure the MongoDB service is running.
 
 ---
+- **Application Screenshots :**
+- ![image](https://github.com/user-attachments/assets/bdcb4580-51c4-4534-9929-fedd9facca55)
+
+
 
 ## License
 
