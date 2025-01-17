@@ -4,3 +4,4 @@ selenium
 webdriver-manager==3.8.0
 chromedriver-autoinstaller
 gunicorn
+python-dotenv
