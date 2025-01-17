@@ -1,7 +1,7 @@
 Flask
 pymongo
 selenium
-webdriver-manager==3.8.0
+webdriver-manager
 chromedriver-autoinstaller
 gunicorn
 python-dotenv
