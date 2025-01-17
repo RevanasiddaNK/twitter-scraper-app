@@ -123,7 +123,8 @@ Replace `<username>`, `<password>`, `<dbname>`, `<twitter_username>`, and `<twit
 
 ---
 - **Application Screenshots :**
-![image](https://github.com/user-attachments/assets/ad57ae4e-685b-4b57-91b7-ecbf72f908a2)
+![image](https://github.com/user-attachments/assets/b6948ed5-2d5b-49d8-8caa-791c7e9af2ad)
+
 
 
 
