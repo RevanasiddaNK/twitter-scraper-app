@@ -44,7 +44,7 @@ def scrape_x():
         password_input.send_keys(os.getenv("X_PASSWORD"))
         driver.find_element(By.XPATH, '//span[text()="Log in"]').click()
 
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 300).until(
             EC.presence_of_element_located((By.XPATH, '//div[@aria-label="Timeline: Your Home Timeline"]'))
         )
 
