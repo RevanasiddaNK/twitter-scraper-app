@@ -28,10 +28,9 @@ This is a simple Flask-based web application that scrapes Twitter's (X) trending
 
 Run the following command to clone this project:
 ```bash
-git clone https://github.com/USERNAME/REPO_NAME.git
-cd REPO_NAME
+git clone https://github.com/RevanasiddaNK/twitter-scraper-app.git
+cd twitter-scraper-app
 ```
-Replace `USERNAME` and `REPO_NAME` with the actual GitHub username and repository name.
 
 ### 2. Install Required Dependencies
 
@@ -45,12 +44,12 @@ pip install -r requirements.txt
 - If using MongoDB Atlas, create a cluster and obtain the connection URI.
 - If using a local MongoDB setup, ensure MongoDB is running.
 
-Update the `mongo_uri` in `app.py` to match your MongoDB connection string.
+Update the `mongo_uri` in `.env` to match your MongoDB connection string.
 
 ### 4. Download ChromeDriver
 
 - Download the appropriate version of ChromeDriver for your system from: https://sites.google.com/a/chromium.org/chromedriver/
-- Place `chromedriver.exe` in the project directory (or specify the correct path in `scraper.py`).
+- Place `chromedriver.exe` in the project directory (or specify the correct path in `.env`).
 
 ### 5. Run the Flask App
 
@@ -78,6 +77,7 @@ twitter-scraper-app/
 ├── chromedriver.exe      # Chrome WebDriver (make sure it's compatible with your version of Chrome)
 ├── requirements.txt      # Python dependencies
 └── README.md             # Project documentation
+└── .env 
 ```
 
 ---
