@@ -1,6 +1,6 @@
-Flask==x.x.x
-pymongo==x.x.x
-selenium==x.x.x
+Flask
+pymongo
+selenium
 webdriver-manager==3.8.0
-chromedriver-autoinstaller==x.x.x
-gunicorn==x.x.x
+chromedriver-autoinstaller
+gunicorn
