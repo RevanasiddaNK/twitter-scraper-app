@@ -49,7 +49,7 @@ def scrape_x():
         )
 
         driver.get("https://x.com/explore/tabs/trending")
-        WebDriverWait(driver, 60).until(
+        WebDriverWait(driver, 300).until(
             EC.presence_of_all_elements_located((By.XPATH, '//div[@data-testid="trend"]'))
         )
 
