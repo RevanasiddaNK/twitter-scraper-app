@@ -9,7 +9,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 # Load environment variables
-load_dotenv()
+load_dotenv() 
 
 app = Flask(__name__)
 
