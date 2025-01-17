@@ -5,3 +5,4 @@ webdriver-manager
 chromedriver-autoinstaller
 gunicorn
 python-dotenv
+waitress
