@@ -1,3 +1,29 @@
+import os
+import logging
+import traceback
+from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager  # Automatically manages ChromeDriver
+from pymongo import MongoClient
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+# MongoDB connection
+mongo_uri = os.getenv("MONGO_URI")
+client = MongoClient(mongo_uri)
+db = client['twitter_scraper']
+collection = db['trending_topics']
+
 def scrape_x():
     """
     Scrapes trending topics from the 'X' platform and stores them in MongoDB.
@@ -18,8 +44,8 @@ def scrape_x():
     chrome_binary_path = "/usr/bin/google-chrome"  # Adjust for your system
     chrome_options.binary_location = chrome_binary_path
 
-    # Automatically download and configure ChromeDriver
     try:
+        # Automatically download and configure ChromeDriver
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         logging.info("WebDriver initialized successfully.")
     except Exception as e:
@@ -48,7 +74,7 @@ def scrape_x():
         driver.find_element(By.XPATH, '//span[text()="Log in"]').click()
         logging.info("Entered password and clicked Log in.")
 
-        # Wait for the home timeline
+        # Wait for the home timeline to load
         WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.XPATH, '//div[@aria-label="Timeline: Your Home Timeline"]'))
         )
